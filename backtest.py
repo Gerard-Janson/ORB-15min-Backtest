@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 timeframe = "M15"
 symbol = "SPX500"
 timezone = "America/New_York"
+start_range = "09:30"
+end_range = "09:45"
+latest_entry_time = "12:00"
+min_ATR = 1.25
+max_ATR = 3
 
 
 def price_data(symbol):
@@ -26,6 +31,7 @@ def price_data(symbol):
     df = df.loc["2019-12-31":]
     return df
 
-
-
-
+def real_opening_range(df):
+    df['Time'] = df.index.time
+    df['Date'] = df.index.date
+   
